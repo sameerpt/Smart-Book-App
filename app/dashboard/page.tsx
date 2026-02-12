@@ -70,11 +70,11 @@ export default function Dashboard() {
 
 
     const addBookmark = async () => {
-        if (!title || !url) return toast.warning("all fields required")
+        if (!title || !url) return
 
         const { data: { user } } = await supabaseClient.auth.getUser();
 
-        if (!user) return;
+        if (!user) return ;
 
         await supabaseClient.from('bookmarks').insert({
             title,
